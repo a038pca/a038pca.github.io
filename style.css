@@ -1,0 +1,151 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 8vh;
+}
+
+h1 {
+    font-family: 'Megrim', cursive;
+    font-size: 28px;
+}
+
+#navLinks {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: 'Offside', cursive;
+}
+
+#navLinks li{
+    list-style: none;
+}
+
+#navLinks a {
+    text-decoration: none;
+    color: black;
+    padding: 0px 20px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.container *{
+    animation: text 1s forwards;
+}
+
+#ABOUT {
+    padding: 0px 10vw;
+    height: 60vh;
+    background: linear-gradient(rgba(255, 255, 255, .5), rgba(255, 255, 255, .2)), url("Images/ABOUT/Background.jpg") center;
+    background-size: cover;
+    align-items: center;
+}
+
+#ABOUT h1 {
+    font-family: 'Poiret One', cursive;
+    font-size: 60px;
+    letter-spacing: 4px;
+}
+
+#ABOUT div {
+    padding-top: 2vh;
+    font-family: 'Muli', cursive;
+    text-align: center;
+}
+
+#PROTFOLIO {
+    height: 80vh;
+}
+
+#PROTFOLIO h1 {
+    margin: 0 auto;
+    font-family: 'Offside', cursive;
+    font-size: 24px;
+    letter-spacing: 4px;
+}
+
+.SeperationLine {
+    margin: 0 auto;
+    margin-top: 40px;
+    width: 40px;
+    height: 7px;
+    border-radius: 5px;
+    background-color: #5ef2ff;
+}
+
+#PROTFOLIO h2 {
+    margin: 0 auto;
+    margin-top: 40px;
+    font-family: "Pale Blue Eyes";
+    font-size: 48px;
+}
+
+#slideshow {
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: hidden;
+}
+
+#slideshow * {
+    width: 25vw;
+    flex-shrink: 0;
+}
+
+#modal {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+#modal img {
+    display: block;
+    margin: auto;
+    max-height: 100vh;
+    max-width: 100vw;
+}
+
+#close {
+    position: absolute;
+    top: 1vh;
+    right: 2vw;
+    color: #f1f1f1;
+    font-size: 5vh;
+    font-weight: bold;
+}
+ 
+#close:hover {
+  color: #bbb;
+}
+
+@keyframes text {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+@font-face {
+    font-family: "Pale Blue Eyes";
+    src: url("PaleBlueEyes.woff2");
+}
