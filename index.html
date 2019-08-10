@@ -13,6 +13,25 @@
     <script src="jquery-3.4.1.js"></script>
     <script>
         $(function() {
+            $(".container").each(function(){
+                let bottom = $(this).offset().top +  $(this).outerHeight();
+                let windowBottom = $(window).scrollTop() + $(window).height();
+
+                if (windowBottom < bottom)
+                    $(this).children().css("opacity", "0");
+            });
+
+            $(window).scroll(function(){
+                $(".container").each(function(){
+                    let bottom = $(this).offset().top +  $(this).outerHeight();
+                    let windowBottom = $(window).scrollTop() + $(window).height();
+
+                    if (windowBottom > bottom)
+                        $(".container").children().addClass("fadeIn");
+                    
+                });
+            });
+
             let x, y, down, scrollTop, scrollLeft;
             $("#slideshow").mousedown(function(e) {
                 e.preventDefault();
