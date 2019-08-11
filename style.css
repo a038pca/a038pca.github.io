@@ -20,7 +20,7 @@ nav {
     background-color: white;
 }
 
-h1 {
+nav h1 {
     display: flex;
     align-items: center;
     font-family: 'Megrim', cursive;
@@ -48,18 +48,24 @@ h1 {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    width: 100%;
 }
 
-.fadeIn{
+.container * {
     animation: text 1s forwards;
 }
 
-#ABOUT {
+.content {
+    font-family: 'Muli', cursive;
     padding: 0px 10vw;
+}
+
+#ABOUT {
     height: 60vh;
+    width: 100vw;
     background: linear-gradient(rgba(255, 255, 255, .5), rgba(255, 255, 255, .2)), url("Images/ABOUT/Background.jpg") center;
     background-size: cover;
-    align-items: center;
+    text-align: center;
 }
 
 #ABOUT h1 {
@@ -68,20 +74,19 @@ h1 {
     letter-spacing: 4px;
 }
 
-#ABOUT div {
+#ABOUT .content {
     padding-top: 2vh;
-    font-family: 'Muli', cursive;
-    text-align: center;
 }
 
-#PROTFOLIO {
-    height: 80vh;
+#Sun-punchMan {
+    height: 115vh;
+    background-color: #FAFAFA;
 }
 
 #PROTFOLIO h1 {
-    margin: 0 auto;
     font-family: 'Offside', cursive;
     font-size: 24px;
+    text-align: center;
     letter-spacing: 4px;
 }
 
@@ -94,21 +99,28 @@ h1 {
     background-color: #5ef2ff;
 }
 
-#PROTFOLIO h2 {
-    margin: 0 auto;
-    margin-top: 40px;
-    font-family: "Pale Blue Eyes";
+.GameName {
     font-size: 48px;
+    text-align: center;
 }
 
-#slideshow {
+#Sun-punchMan .GameName {
+    margin-top: 40px;
+    font-family: "Pale Blue Eyes";
+}
+
+#Sun-punchMan .content {
+    margin-top: 50px;
+}
+
+.slideshow {
     margin-top: 40px;
     display: flex;
     flex-wrap: nowrap;
     overflow: hidden;
 }
 
-#slideshow * {
+.slideshow * {
     width: 25vw;
     flex-shrink: 0;
 }
@@ -122,6 +134,7 @@ h1 {
     position: fixed;
     left: 0;
     top: 0;
+    z-index: 2;
     background-color: rgba(0, 0, 0, 0.9);
 }
 
@@ -145,6 +158,20 @@ h1 {
   color: #bbb;
 }
 
+#Eryla {
+    height: 100vh;
+    background-color: #dbae65
+}
+
+#Eryla .GameName {
+    font-family: "Xirwena";
+}
+
+#Eryla .content {
+    font-family: "XalTerion";
+    margin-top: 40px;
+}
+
 @keyframes text {
     from {
         transform: translateY(20px);
@@ -158,5 +185,15 @@ h1 {
 
 @font-face {
     font-family: "Pale Blue Eyes";
-    src: url("PaleBlueEyes.woff2");
+    src: url("Fonts/Pale\ Blue\ Eyes.woff2");
+}
+
+@font-face {
+    font-family: "Xirwena";
+    src: url("Fonts/Xirwena.woff2");
+}
+
+@font-face {
+    font-family: "XalTerion";
+    src: url("Fonts/XalTerion.woff2");
 }

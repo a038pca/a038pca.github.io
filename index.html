@@ -13,44 +13,30 @@
     <script src="jquery-3.4.1.js"></script>
     <script>
         $(function() {
-            $(".container").each(function(){
-                let bottom = $(this).offset().top +  $(this).outerHeight();
-                let windowBottom = $(window).scrollTop() + $(window).height();
-
-                if (windowBottom < bottom)
-                    $(this).children().css("opacity", "0");
-            });
-
-            $(window).scroll(function(){
-                $(".container").each(function(){
-                    let bottom = $(this).offset().top +  $(this).outerHeight();
-                    let windowBottom = $(window).scrollTop() + $(window).height();
-
-                    if (windowBottom > bottom)
-                        $(".container").children().addClass("fadeIn");
-                    
-                });
-            });
-
-            let x, y, down, scrollTop, scrollLeft;
-            $("#slideshow").mousedown(function(e) {
+            let x, y, isDown, scrollTop, scrollLeft, isClick;
+            $(".slideshow").mousedown(function(e) {
                 e.preventDefault();
-                down = true;
+                isDown = true;
                 x = e.pageX;
                 y = e.pageY;
                 scrollTop = $(this).scrollTop();
                 scrollLeft = $(this).scrollLeft();
             });
-            $("#slideshow").mousemove(function(e){
-                if (!down)
-                    return;
+            $(".slideshow").mousemove(function(e) {
+                if (!isDown) return;
                 
-                $("#slideshow").scrollTop(scrollTop + y - e.pageY);
-                $("#slideshow").scrollLeft(scrollLeft + x - e.pageX);
+                $(".slideshow").scrollTop(scrollTop + y - e.pageY);
+                $(".slideshow").scrollLeft(scrollLeft + x - e.pageX);
+                isClick = false;
             });
-            $("#slideshow").mouseup(function(){ down = false; });
+            $(".slideshow").mouseup(function(){
+                isDown = false;
+                setTimeout(function() { isClick = true }, 1);
+            });
             
-            $("#slideshow").children().click(function(){
+            $(".slideshow").children().click(function(){
+                if (!isClick) return;
+
                 $("#modal").css("display", "flex");
                 $("#modal img").attr("src", $(this).attr("src"));
             });
@@ -72,28 +58,67 @@
     </nav>
     <div id="ABOUT" class="container">
         <h1>Welcome to My World!</h1>
-        <div>
+        <div class="content">
             Hello! I am Wyatt a.k.a a038pca, a game developer and enthusiast!
             I have just earned Bachelor of Engineering in Computer Engineering in HKUST.
             I made several riveting games with Unity in my university life. Hope you will love them!
-        </div>
-        <div>
+            <br><br>
             E-mail: wyatt.tsech@gmail.com
         </div>
     </div>
-    <div id="PROTFOLIO" class="container">
-        <h1>PROTFOLIO</h1>
-        <div class="SeperationLine"></div>
-        <h2>Sun-punch Man</h2>
-        <div id="slideshow">
-            <img id="fuck" src="Images/PROTFOLIO/Sun-punch Man/Start Scene.PNG" />
-            <img src="Images/PROTFOLIO/Sun-punch Man/Game Scene.PNG" />
-            <img src="Images/PROTFOLIO/Sun-punch Man/Game Scene (1).PNG" />
-            <img src="Images/PROTFOLIO/Sun-punch Man/Lo Mon.png" />
+    <div id="PROTFOLIO">
+        <div id="Sun-punchMan" class="container">
+            <h1>PROTFOLIO</h1>
+            <div class="SeperationLine"></div>
+            <h2 class="GameName">Sun-punch Man</h2>
+            <div class="slideshow">
+                <img src="Images/PROTFOLIO/Sun-punch Man/Start Scene.PNG" />
+                <img src="Images/PROTFOLIO/Sun-punch Man/Game Scene.PNG" />
+                <img src="Images/PROTFOLIO/Sun-punch Man/Game Scene (1).PNG" />
+                <img src="Images/PROTFOLIO/Sun-punch Man/Lo Mon.png" />
+            </div>
+            <div class="content">
+                In 1972, Ip Man was old and getting weaker. The day before he whistled past the graveyard, he slept on a bed with his apprentices' accompany.
+                An apprentice can't help asking: "Why is your Wing Chun so awesome?". "Fight is not only a fight, it is a music, a rhythm.
+                The rivals' pace, their breath, their heartbeat compose everything. If you get the rhythm deep in your heart, you are invincible." said by Ip Man
+                while he recalled the battle with 10 Japanese soldiers when he was young...
+                <br><br>
+                Features:<br>
+                - Unprecedented and characteristic gameplay<br>
+                - Funny artworks and exquisite effects<br>
+                - Spoof in a serious manner<br>
+                - Becoming Ip Man and enjoying the fight with thousnads of soldiers
+            </div>
+        </div>
+        <div id="Eryla" class="container">
+            <h2 class="GameName">Eryla</h2>
+            <div class="slideshow">
+                <img src="Images/PROTFOLIO/Eryla/Start Scene.PNG "/>
+                <img src="Images/PROTFOLIO/Eryla/RPG Basment Scene.PNG" />
+                <img src="Images/PROTFOLIO/Eryla/Coversation.PNG" />
+                <img src="Images/PROTFOLIO/Eryla/Inventory System.PNG" />
+                <img src="Images/PROTFOLIO/Eryla/Synthesis System.PNG" />
+                <img src="Images/PROTFOLIO/Eryla/Load Save System.PNG" />
+                <img src="Images/PROTFOLIO/Eryla/Rhythm Game Scene.jpg" />
+                <img src="Images/PROTFOLIO/Eryla/Illustration Scene.PNG" />
+            </div>
+            <div class="content">
+                Trista, a little girl living in a basement from birth. As her uncle's death, there is nobody that restrict her from going outside.
+                She starts her journey to explore the world ruined and full of monsters with Eryla, an epic and powerful magic bow found in the basement.
+                What is waiting for her besides the monsters?
+                <br><br>
+                Features:<br>
+                - A fusion of RPG and rhythm game<br>
+                - A new definition of a rhythm game: one is no longer only achieving a higher score but a battle<br>
+                - Different combinations and synthesis of versatile skills that assist your battle<br>
+                - Unprecedented and characteristic gameplay<br>
+                - A vivid 3D world for exploring the worldview<br>
+                - Awesome story and artworks<br>
+            </div>
         </div>
         <div id="modal">
             <span id="close">&times;</span>
-            <img/>
+            <img />
         </div>
     </div>
 </body>
