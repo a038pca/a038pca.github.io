@@ -30,18 +30,11 @@
             $(".Slideshow").scrollLeft(scrollLeft + x - e.pageX);
             isClick = false;
         }
-
+ 
         function OnPointerUp() {
             isDown = false;
             setTimeout(function() { isClick = true }, 1);
         }
-
-        let slideshows = document.querySelectorAll(".Slideshow");
-        slideshows.forEach(slideshow => {
-            slideshow.addEventListener("touchstart", OnPointerDown);
-            slideshow.addEventListener("touchmove", OnDrag);
-            slideshow.addEventListener("touchend", OnPointerUp)
-        });
 
         $(function() {   
             $(".Slideshow").mousedown(OnPointerDown);
