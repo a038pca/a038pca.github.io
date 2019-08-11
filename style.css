@@ -75,7 +75,7 @@ nav h1 {
 }
 
 #Sun-punchMan {
-    height: 1077px;
+    height: 1510px;
     background-color: #FAFAFA;
 }
 
@@ -155,7 +155,7 @@ nav h1 {
 }
 
 #Eryla {
-    height: 942px;
+    height: 1293px;
     background-color: #dbae65
 }
 
@@ -183,6 +183,14 @@ nav h1 {
     #ABOUT h1 {
         font-size: 60px;
         letter-spacing: 4px;
+    }
+
+    #Sun-punchMan {
+        height: 1077px;
+    }
+
+    #Eryla {
+        height: 942px;
     }
 
     .slideshow * {
