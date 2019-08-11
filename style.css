@@ -14,8 +14,8 @@ nav {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
-    min-height: 7vh;
+    width: 100%;
+    height: 60px;
     z-index: 1;
     background-color: white;
 }
@@ -48,7 +48,6 @@ nav h1 {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 100%;
 }
 
 .container * {
@@ -61,8 +60,8 @@ nav h1 {
 }
 
 #ABOUT {
+    position: static;
     height: 60vh;
-    width: 100vw;
     background: linear-gradient(rgba(255, 255, 255, .5), rgba(255, 255, 255, .2)), url("Images/ABOUT/Background.jpg") center;
     background-size: cover;
     text-align: center;
@@ -70,7 +69,7 @@ nav h1 {
 
 #ABOUT h1 {
     font-family: 'Poiret One', cursive;
-    font-size: 60px;
+    font-size: 28px;
     letter-spacing: 4px;
 }
 
@@ -180,6 +179,12 @@ nav h1 {
     to {
         transform: translateY(0px);
         opacity: 1;
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    #ABOUT h1 {
+        font-size: 60px;
     }
 }
 
