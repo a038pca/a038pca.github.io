@@ -117,8 +117,7 @@ nav h1 {
 }
 
 .Slideshow * {
-    width: 250px;
-    height: auto;
+    max-width: 250px;
     flex-shrink: 0;
 }
 
@@ -195,7 +194,7 @@ nav h1 {
     }
 
     .Slideshow * {
-        width: 25%;
+        max-width: 25%;
     }
 }
 
