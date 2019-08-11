@@ -11,6 +11,7 @@ html {
 nav {
     display: flex;
     justify-content: space-around;
+    align-items: center;
     position: fixed;
     top: 0;
     left: 0;
@@ -21,16 +22,12 @@ nav {
 }
 
 nav h1 {
-    display: flex;
-    align-items: center;
     font-family: 'Megrim', cursive;
     font-size: 28px;
 }
 
 #navLinks {
     display: flex;
-    justify-content: space-around;
-    align-items: center;
     font-family: 'Offside', cursive;
 }
 
@@ -41,7 +38,6 @@ nav h1 {
 #navLinks a {
     text-decoration: none;
     color: black;
-    padding: 0px 20px;
 }
 
 .container {
@@ -75,11 +71,11 @@ nav h1 {
 }
 
 #ABOUT .content {
-    padding-top: 2vh;
+    padding-top: 15px;
 }
 
 #Sun-punchMan {
-    height: 115vh;
+    height: 1077px;
     background-color: #FAFAFA;
 }
 
@@ -87,7 +83,7 @@ nav h1 {
     font-family: 'Offside', cursive;
     font-size: 24px;
     text-align: center;
-    letter-spacing: 4px;
+    letter-spacing: 2px;
 }
 
 .SeperationLine {
@@ -121,7 +117,7 @@ nav h1 {
 }
 
 .slideshow * {
-    width: 25vw;
+    width: 300px;
     flex-shrink: 0;
 }
 
@@ -159,7 +155,7 @@ nav h1 {
 }
 
 #Eryla {
-    height: 100vh;
+    height: 942px;
     background-color: #dbae65
 }
 
@@ -183,9 +179,14 @@ nav h1 {
     }
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 768px) {
     #ABOUT h1 {
         font-size: 60px;
+        letter-spacing: 4px;
+    }
+
+    .slideshow * {
+        width: 25%;
     }
 }
 
