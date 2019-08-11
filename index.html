@@ -12,29 +12,43 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:300&display=swap" >
     <script src="jquery-3.4.1.js"></script>
     <script>
-        $(function() {
-            let x, y, isDown, scrollTop, scrollLeft, isClick;
-            $(".slideshow").mousedown(function(e) {
-                e.preventDefault();
-                isDown = true;
-                x = e.pageX;
-                y = e.pageY;
-                scrollTop = $(this).scrollTop();
-                scrollLeft = $(this).scrollLeft();
-            });
-            $(".slideshow").mousemove(function(e) {
-                if (!isDown) return;
+        let x, y, isDown, scrollTop, scrollLeft, isClick;
+        
+        function OnPointerDown(e) {
+            e.preventDefault();
+            isDown = true;
+            x = e.pageX;
+            y = e.pageY;
+            scrollTop = $(this).scrollTop();
+            scrollLeft = $(this).scrollLeft();
+        }
+
+        function OnDrag(e) {
+            if (!isDown) return;
                 
-                $(".slideshow").scrollTop(scrollTop + y - e.pageY);
-                $(".slideshow").scrollLeft(scrollLeft + x - e.pageX);
-                isClick = false;
-            });
-            $(".slideshow").mouseup(function(){
-                isDown = false;
-                setTimeout(function() { isClick = true }, 1);
-            });
+            $(".Slideshow").scrollTop(scrollTop + y - e.pageY);
+            $(".Slideshow").scrollLeft(scrollLeft + x - e.pageX);
+            isClick = false;
+        }
+
+        function OnPointerUp() {
+            isDown = false;
+            setTimeout(function() { isClick = true }, 1);
+        }
+
+        let slideshows = document.querySelectorAll(".Slideshow");
+        slideshows.forEach(slideshow => {
+            slideshow.addEventListener("touchstart", OnPointerDown);
+            slideshow.addEventListener("touchmove", OnDrag);
+            slideshow.addEventListener("touchend", OnPointerUp)
+        });
+
+        $(function() {   
+            $(".Slideshow").mousedown(OnPointerDown);
+            $(".Slideshow").mousemove(OnDrag);
+            $(".Slideshow").mouseup(OnPointerUp);
             
-            $(".slideshow").children().click(function(){
+            $(".Slideshow").children().click(function(){
                 if (!isClick) return;
 
                 $("#modal").css("display", "flex");
@@ -44,6 +58,8 @@
             $("#close").click(function() {
                 $("#modal").css("display", "none");
             });
+
+            alert($("#Sun-punchMan").css("height"));
         });
     </script>
 </head>
@@ -71,7 +87,7 @@
             <h1>PROTFOLIO</h1>
             <div class="SeperationLine"></div>
             <h2 class="GameName">Sun-punch Man</h2>
-            <div class="slideshow">
+            <div class="Slideshow">
                 <img src="Images/PROTFOLIO/Sun-punch Man/Start Scene.PNG" />
                 <img src="Images/PROTFOLIO/Sun-punch Man/Game Scene.PNG" />
                 <img src="Images/PROTFOLIO/Sun-punch Man/Game Scene (1).PNG" />
@@ -92,7 +108,7 @@
         </div>
         <div id="Eryla" class="container">
             <h2 class="GameName">Eryla</h2>
-            <div class="slideshow">
+            <div class="Slideshow">
                 <img src="Images/PROTFOLIO/Eryla/Start Scene.PNG "/>
                 <img src="Images/PROTFOLIO/Eryla/RPG Basment Scene.PNG" />
                 <img src="Images/PROTFOLIO/Eryla/Coversation.PNG" />
