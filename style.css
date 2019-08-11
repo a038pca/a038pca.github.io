@@ -117,8 +117,9 @@ nav h1 {
 }
 
 .Slideshow * {
+    width: 100%;
     max-width: 250px;
-    flex-shrink: 0;
+    flex: none;
 }
 
 #modal {
