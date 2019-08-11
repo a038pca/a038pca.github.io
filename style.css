@@ -55,21 +55,22 @@ nav h1 {
 }
 
 .content {
-    font-family: 'Muli', cursive;
     padding: 0px 10vw;
+    font-family: 'Muli', cursive;
 }
 
 #ABOUT {
-    position: static;
-    height: 60vh;
+    position: relative;
+    top: 60px;
+    height: 560px;
+    text-align: center;
     background: linear-gradient(rgba(255, 255, 255, .5), rgba(255, 255, 255, .2)), url("Images/ABOUT/Background.jpg") center;
     background-size: cover;
-    text-align: center;
 }
 
 #ABOUT h1 {
     font-family: 'Poiret One', cursive;
-    font-size: 28px;
+    font-size: 36px;
     letter-spacing: 4px;
 }
 
