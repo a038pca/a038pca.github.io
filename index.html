@@ -33,12 +33,12 @@
                 e = e.targetTouches[0];
             $(".Slideshow").scrollTop(scrollTop + y - e.pageY);
             $(".Slideshow").scrollLeft(scrollLeft + x - e.pageX);
-            //isClick = false;
+            isClick = false;
         }
  
         function OnPointerUp() {
             isDown = false;
-            //setTimeout(function() { isClick = true }, 1);
+            setTimeout(function() { isClick = true }, 1);
         }
 
         $(function() {
@@ -50,7 +50,7 @@
             $(".Slideshow").mousemove(OnDrag);
             $(".Slideshow").mouseup(OnPointerUp);
             
-            /*$(".Slideshow").children().click(function(){
+            $(".Slideshow").children().click(function(){
                 if (!isClick) return;
 
                 $("#modal").css("display", "flex");
@@ -59,7 +59,7 @@
 
             $("#close").click(function() {
                 $("#modal").css("display", "none");
-            });*/
+            });
         });
     </script>
 </head>
