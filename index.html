@@ -46,8 +46,7 @@
             $(".Slideshow").on("touchmove mousemove", OnDrag);
             $(".Slideshow").on("touchend mouseup", OnPointerUp);
             
-            $(".Slideshow").children().click(function(e){
-                e.preventDefault();
+            $(".Slideshow").children().on("touchstart", function(e){
                 if (!isClick) return;
 
                 $("#modal").css("display", "flex");
