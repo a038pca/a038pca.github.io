@@ -66,7 +66,7 @@ nav h1 {
 
 #ABOUT h1 {
     font-family: 'Poiret One', cursive;
-    font-size: 36px;
+    font-size: 60px;
     letter-spacing: 4px;
 }
 
@@ -75,7 +75,7 @@ nav h1 {
 }
 
 #Sun-punchMan {
-    height: 1463px;
+    height: 1077px;
     background-color: #FAFAFA;
 }
 
@@ -117,7 +117,8 @@ nav h1 {
 }
 
 .Slideshow * {
-    flex: 0 0 200px;
+    flex: none;
+    width: 25%;
 }
 
 #modal {
@@ -154,7 +155,7 @@ nav h1 {
 }
 
 #Eryla {
-    height: 1227px;
+    height: 942px;
     background-color: #dbae65
 }
 
@@ -178,22 +179,22 @@ nav h1 {
     }
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (max-width: 768px) {
     #ABOUT h1 {
-        font-size: 60px;
+        font-size: 36px;
         letter-spacing: 4px;
     }
 
     #Sun-punchMan {
-        height: 1077px;
+        height: 1463px;
     }
 
     #Eryla {
-        height: 942px;
+        height: 1227px;
     }
     
     .Slideshow * {
-        flex-basis: 25%;
+        width: 250px;
     }
 }
 
