@@ -37,9 +37,9 @@
         }
 
         $(function() {   
-            $(".Slideshow").mousedown(OnPointerDown);
-            $(".Slideshow").mousemove(OnDrag);
-            $(".Slideshow").mouseup(OnPointerUp);
+            $(".Slideshow").on("pointerdown", OnPointerDown);
+            $(".Slideshow").on("pointermove", OnDrag);
+            $(".Slideshow").on("pointerup", OnPointerUp);
             
             $(".Slideshow").children().click(function(){
                 if (!isClick) return;
