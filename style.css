@@ -118,8 +118,7 @@ nav h1 {
 
 .Slideshow * {
     flex: none;
-    width: 250px;
-    max-height: 100%;
+    max-width: 25%;
 }
 
 #modal {
@@ -192,10 +191,6 @@ nav h1 {
 
     #Eryla {
         height: 942px;
-    }
-    
-    .Slideshow * {
-        width: 25%;
     }
 }
 
