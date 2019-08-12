@@ -42,15 +42,12 @@
         }
 
         $(function() {
-            $(".Slideshow").on("touchstart", OnPointerDown);
-            $(".Slideshow").on("touchmove", OnDrag);
-            $(".Slideshow").on("touchend", OnPointerUp);
-
-            $(".Slideshow").mousedown(OnPointerDown);
-            $(".Slideshow").mousemove(OnDrag);
-            $(".Slideshow").mouseup(OnPointerUp);
+            $(".Slideshow").on("touchstart mousedown", OnPointerDown);
+            $(".Slideshow").on("touchmove mousemove", OnDrag);
+            $(".Slideshow").on("touchend mouseup", OnPointerUp);
             
-            $(".Slideshow").children().click(function(){
+            $(".Slideshow").children().click(function(e){
+                e.preventDefault();
                 if (!isClick) return;
 
                 $("#modal").css("display", "flex");
