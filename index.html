@@ -13,21 +13,25 @@
     <script src="jquery-3.4.1.js"></script>
     <script>
         let x, y, isDown, scrollTop, scrollLeft, isClick;
+        let isTouch = "ontouchstart" in document.documentElement;
         
         function OnPointerDown(e) {
             e.preventDefault();
             isDown = true;
-            x = e.pageX;
-            y = e.pageY;
+
+            let touch = e.targetTouches[0];
+            x = touch.pageX;
+            y = touch.pageY;
             scrollTop = $(this).scrollTop();
             scrollLeft = $(this).scrollLeft();
         }
 
         function OnDrag(e) {
             if (!isDown) return;
-                
-            $(".Slideshow").scrollTop(scrollTop + y - e.pageY);
-            $(".Slideshow").scrollLeft(scrollLeft + x - e.pageX);
+
+            let touch = e.targetTouches[0];    
+            $(".Slideshow").scrollTop(scrollTop + y - touch.pageY);
+            $(".Slideshow").scrollLeft(scrollLeft + x - touch.pageX);
             isClick = false;
         }
  
@@ -37,9 +41,9 @@
         }
 
         $(function() {   
-            $(".Slideshow").on("pointerdown", OnPointerDown);
-            $(".Slideshow").on("pointermove", OnDrag);
-            $(".Slideshow").on("pointerup", OnPointerUp);
+            $(".Slideshow").on("touchstart", OnPointerDown);
+            $(".Slideshow").on("touchmove", OnDrag);
+            $(".Slideshow").on("touchend", OnPointerUp);
             
             $(".Slideshow").children().click(function(){
                 if (!isClick) return;
@@ -51,6 +55,8 @@
             $("#close").click(function() {
                 $("#modal").css("display", "none");
             });
+
+            alert(isTouch);
         });
     </script>
 </head>
