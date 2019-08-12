@@ -117,9 +117,7 @@ nav h1 {
 }
 
 .Slideshow * {
-    display: block;
-    flex: none;
-    width: 250px;
+    flex: 0 0 200px;
 }
 
 #modal {
@@ -195,7 +193,7 @@ nav h1 {
     }
     
     .Slideshow * {
-        width: 25%;
+        flex-basis: 25%;
     }
 }
 
