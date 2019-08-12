@@ -112,13 +112,13 @@ nav h1 {
 .Slideshow {
     margin-top: 40px;
     display: flex;
+    height: auto;
     flex-wrap: nowrap;
     overflow: hidden;
 }
 
 .Slideshow * {
     flex: none;
-    display: block;
     width: 250px;
 }
 
