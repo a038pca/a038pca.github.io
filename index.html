@@ -12,48 +12,41 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli:300&display=swap" >
     <script src="jquery-3.4.1.js"></script>
     <script>
-        let x, y, isDown, scrollTop, scrollLeft, isClick;
-        let isTouch = "ontouchstart" in document.documentElement;
 
-        function OnPointerDown(e) {
-            e.preventDefault();
-            isDown = true;
+        $(function(){
+            let isTouch = "ontouchstart" in document.documentElement;
             if (isTouch)
-                e = e.targetTouches[0];
-            x = e.pageX;
-            y = e.pageY;
-            scrollTop = $(this).scrollTop();
-            scrollLeft = $(this).scrollLeft();
-        }
+                $(".Slideshow").css("overflow", "scroll");
 
-        function OnDrag(e) {
-            if (!isDown) return;
+            let x, y, isDown, scrollTop, scrollLeft, isClick;
+            $(".Slideshow").mousedown(function(e){
+                e.preventDefault();
+                isDown = true;
+                x = e.pageX;
+                y = e.pageY;
+                scrollTop = $(this).scrollTop();
+                scrollLeft = $(this).scrollLeft();
+            })
+            $(".Slideshow").mousemove(function(e){
+                if (!isDown) return;
 
-            if (isTouch)
-                e = e.targetTouches[0];
-            $(".Slideshow").scrollTop(scrollTop + y - e.pageY);
-            $(".Slideshow").scrollLeft(scrollLeft + x - e.pageX);
-            isClick = false;
-        }
- 
-        function OnPointerUp() {
-            isDown = false;
-            setTimeout(function() { isClick = true }, 1);
-        }
-
-        $(function() {
-            $(".Slideshow").on("touchstart mousedown", OnPointerDown);
-            $(".Slideshow").on("touchmove mousemove", OnDrag);
-            $(".Slideshow").on("touchend mouseup", OnPointerUp);
+                $(".Slideshow").scrollTop(scrollTop + y - e.pageY);
+                $(".Slideshow").scrollLeft(scrollLeft + x - e.pageX);
+                isClick = false;
+            })
+            $(".Slideshow").mouseup(function(){
+                isDown = false;
+                setTimeout(function() { isClick = true }, 1);
+            })
             
-            $(".Slideshow").children().on("touchend click", function(e){
-                if (!isClick) return;
+            $(".Slideshow").children().on("click", function(e){
+                if (!isClick || e.target.tagName != "IMG") return;
 
                 $("#modal").css("display", "flex");
                 $("#modal img").attr("src", $(this).attr("src"));
             });
 
-            $("#close").click(function() {
+            $("#close").click(function(){
                 $("#modal").css("display", "none");
             });
         });
@@ -84,6 +77,9 @@
             <div class="SeperationLine"></div>
             <h2 class="GameName">Sun-punch Man</h2>
             <div class="Slideshow">
+                <video controls>
+                    <source src="Final Demo.mp4" type="video/mp4">
+                </video>
                 <img src="Images/PROTFOLIO/Sun-punch Man/Start Scene.PNG" />
                 <img src="Images/PROTFOLIO/Sun-punch Man/Game Scene.PNG" />
                 <img src="Images/PROTFOLIO/Sun-punch Man/Game Scene (1).PNG" />
